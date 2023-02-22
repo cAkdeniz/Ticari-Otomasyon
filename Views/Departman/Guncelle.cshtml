@@ -1,0 +1,20 @@
+﻿@model OnlineTicariOtomasyon.Models.Entity.Departman
+@{
+    ViewBag.Title = "Guncelle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h3 class="mt-4" style="margin-left:670px;color:purple;font-size:33px">Departman Güncelle</h3>
+
+<form method="post" action="Guncelle">
+    <div style="margin-top:25px"></div>
+    <input type="hidden" name="Id" value="@Model.Id" />
+    <div style="margin-top:15px">
+        <label>Departman Adı: </label>
+        @Html.TextBoxFor(x => x.Ad, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info">Güncelle</button>
+    </div>
+</form>
+

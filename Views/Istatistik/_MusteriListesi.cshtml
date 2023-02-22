@@ -1,0 +1,30 @@
+﻿@model List<OnlineTicariOtomasyon.Models.Entity.Musteri>
+@{
+    int i = 0;
+}
+
+<table class="table table-hover text-nowrap">
+    <thead>
+        <tr>
+            <th>*</th>
+            <th>Müşteri Ad</th>
+            <th>Müşteri Soyad</th>
+            <th>Şehir</th>
+            <th>Mail</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            i++;
+        <tr>
+            <td>@i</td>
+            <td>@item.Ad</td>
+            <td>@item.Soyad</td>
+            <td>@item.Sehir</td>
+            <td>@item.Mail</td>
+        </tr>
+        }
+
+    </tbody>
+</table>

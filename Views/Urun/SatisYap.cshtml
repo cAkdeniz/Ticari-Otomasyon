@@ -1,0 +1,51 @@
+﻿@model OnlineTicariOtomasyon.Models.Entity.SatisHareket
+@{
+    ViewBag.Title = "SatisYap";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h3 class="mt-4" style="margin-left:670px;color:purple;font-size:33px">Satış Yap</h3>
+
+<form method="post" action="SatisYap">
+    <div style="margin-top:25px"></div>
+    @Html.HiddenFor(x => x.UrunId)
+    <div style="margin-top:15px">
+        <label>Ürün Adı: </label>
+        <input type="text" class="form-control" readonly value="@ViewBag.UrunAdi"/>
+    </div>
+    <div style="margin-top:15px">
+        <label>Müşteri: </label>
+        @Html.DropDownListFor(x => x.MusteriId, (List<SelectListItem>)ViewBag.Musteriler, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Personel: </label>
+        @Html.DropDownListFor(x => x.PersonelId, (List<SelectListItem>)ViewBag.Personeller, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Adet: </label>
+        <input type="number" id="txtAdet" onchange="sum()" class="form-control" max="10" min="1" name="Adet" value="1"/>
+    </div>
+    <div style="margin-top:15px">
+        <label>Fiyat: </label>
+        <input type="text" name="Fiyat" id="txtFiyat" onkeyup="sum()" class="form-control" value="@Model.Fiyat"/>
+    </div>
+    <div style="margin-top:15px">
+        <label>Toplam Fiyat: </label>
+        <input class="form-control" readonly type="text" name="ToplamTutar" id="txtToplamTutar"/>
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info">Satış Yap</button>
+    </div>
+</form>
+
+<script>
+    function sum() {
+        var adet = document.getElementById('txtAdet').value;
+        var fiyat = document.getElementById('txtFiyat').value;
+        var sonuc = parseInt(adet) * parseInt(fiyat);
+        if (!isNaN(sonuc)) {
+            document.getElementById('txtToplamTutar').value = sonuc;
+        }
+    }
+</script>
+

@@ -1,0 +1,27 @@
+﻿@model OnlineTicariOtomasyon.Models.Entity.Kategori
+@{
+    ViewBag.Title = "Ekle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+
+<h3 class="mt-4" style="margin-left:670px;color:purple;font-size:33px">Kategori Ekle</h3>
+
+@using (Html.BeginForm("Ekle", "Kategori", FormMethod.Post))
+{
+    <div style="margin-top:25px"></div>
+    <div style="margin-top:15px">
+        <label>Kategori Adı: </label>
+        @Html.TextBoxFor(x => x.Ad, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <button id="btn1" class="btn btn-info">Kategori Ekle</button>
+    </div>
+}
+
+<script type="text/javascript">
+    $('#btn1').click(function () {
+        alert("Kategori Eklendi");
+    });
+</script>
+

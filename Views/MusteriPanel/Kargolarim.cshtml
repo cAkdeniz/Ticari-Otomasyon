@@ -1,0 +1,42 @@
+﻿@model List<OnlineTicariOtomasyon.Models.Entity.KargoDetay>
+@{
+    ViewBag.Title = "Kargolarim";
+    Layout = "~/Views/Shared/_MusteriLayout.cshtml";
+}
+<br />
+
+@using (Html.BeginForm("Kargolarim", "MusteriPanel", FormMethod.Get))
+{
+    <p>
+        Kargo Takip Numarası: @Html.TextBox("p")
+        <input type="submit" value="Ara" />
+    </p>
+}
+
+@if (Model.Count != 0)
+{
+    <table class="table table-bordered" style="margin-top:20px">
+        <tr>
+            <th>Personel</th>
+            <th>Alıcı</th>
+            <th>Tarih</th>
+            <th>Detaylar</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Personel</td>
+                <td>@item.Alici</td>
+                <td>@item.Tarih.ToString("D")</td>
+                <td>
+                    <a class="btn" style="background-color:hotpink;color:white" href="/MusteriPanel/KargoDetay/@item.TakipKodu">Detaylar</a>
+                </td>
+            </tr>
+        }
+    </table>
+}
+else
+{
+    <br />
+    <h2>Kargo Bulunamadı...</h2>
+}

@@ -1,0 +1,25 @@
+﻿<div class="pop-up">
+    <div id="small-dialog2" class="mfp-hide book-form">
+
+        <div class="login-form login-form-left">
+            <div class="agile-row">
+                <h3>Kayıt Olma Formu</h3>
+                <div class="login-agileits-top">
+                    <form method="post">
+                        <input type="text" class="name" name="Ad" Placeholder="Ad" required="" />
+                        <input type="text" class="name" name="Soyad" Placeholder="Soyad" required="" />
+                        <input type="text" class="name" name="Sehir" Placeholder="Şehir" required="" />
+                        <input type="email" class="email" name="Mail" Placeholder="Mail Adresi" required="" />
+                        <input type="password" class="password" name="Sifre" Placeholder="Şifre" required=""/>
+                        <div class="login-check">
+                            <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i> Kuralları okudum <a href="#">&amp; Kabul ediyorum.</a></label>
+                        </div>
+                        <input type="submit" value="Kayıt Ol">
+                        @Html.ValidationSummary(false, "", new { @class = "text-danger", @style = "color:red;margin-top:10px" })
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

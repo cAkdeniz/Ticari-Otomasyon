@@ -1,0 +1,23 @@
+﻿@model List<OnlineTicariOtomasyon.Models.Entity.Kategori>
+@{ 
+    int i = 0;
+}
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th style="width: 10px">#</th>
+            <th>Kategori Adı</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            i++;
+            <tr>
+                <td>@i.</td>
+                <td>@item.Ad</td>
+            </tr>
+        }
+    </tbody>
+</table>

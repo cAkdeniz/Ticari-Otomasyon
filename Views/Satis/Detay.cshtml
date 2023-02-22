@@ -1,0 +1,38 @@
+﻿@model OnlineTicariOtomasyon.Models.Entity.SatisHareket
+@{
+    ViewBag.Title = "Detay";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="col-12 mt-3">
+    <div class="row">
+        <h3 style="margin-left:680px;color:green;font-size:33px">Satış Detayı</h3>
+    </div>
+</div>
+<br />
+<table class="table table-condensed table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Ürün</th>
+        <th>Müşteri</th>
+        <th>Personel</th>
+        <th>Fiyat</th>
+        <th>Adet</th>
+        <th>Toplam Tutar</th>
+        <th>Tarih</th>
+    </tr>
+    <tbody>
+        <tr>
+            <td>@Model.Id</td>
+            <td>@Model.Urun.Ad</td>
+            <td>@Model.Musteri.Ad @Model.Musteri.Soyad</td>
+            <td>@Model.Personel.Ad @Model.Personel.Soyad</td>
+            <td>@Model.Fiyat</td>
+            <td>@Model.Adet</td>
+            <td>@Model.ToplamTutar</td>
+            <td>@Model.Tarih.ToString("D")</td>
+        </tr>  
+    </tbody>
+</table>
+<a class="btn btn-primary" href="">Yazdır</a>
+

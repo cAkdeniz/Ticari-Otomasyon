@@ -1,0 +1,19 @@
+﻿@model OnlineTicariOtomasyon.Models.Entity.Departman
+@{
+    ViewBag.Title = "Ekle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h3 class="mt-4" style="margin-left:670px;color:purple;font-size:33px">Departman Ekle</h3>
+
+<form method="post" action="Ekle">
+    <div style="margin-top:25px"></div>
+    <div style="margin-top:15px">
+        <label>Departman Adı: </label>
+        <input type="text" name="Ad" class="form-control" />
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info">Departman Ekle</button>
+    </div>
+</form>
+

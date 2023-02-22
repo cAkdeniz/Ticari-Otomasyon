@@ -1,0 +1,67 @@
+﻿@model List<OnlineTicariOtomasyon.Models.Entity.Urun>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+    int i = 0;
+}
+
+<div class="card mt-3">
+    <div class="col-12 mt-3">
+        <div class="row">
+            <a href="/Urun/Ekle" style="margin-bottom:7px;margin-left:20px" class="btn btn-primary">Yeni Ürün Ekle</a>
+            <h3 style="margin-left:480px;color:green;font-size:33px">Ürün Listesi</h3>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>NO</th>
+                        <th>ÜRÜN</th>
+                        <th>MARKA</th>
+                        <th>STOK</th>
+                        <th>ALIŞ FİYAT</th>
+                        <th>SATIŞ FİYAT</th>
+                        <th>KATEGORİ</th>
+                        <th>RESİM</th>
+                        <th>DÜZENLE</th>
+                        <th>SİL</th>
+                        <th>DETAY</th>
+                        <th>SATIŞ YAP</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        i++;
+                    <tr>
+                        <td>@i</td>
+                        <td>@item.Ad</td>
+                        <td>@item.Marka</td>
+                        <td>@item.Stok</td>
+                        <td>@item.AlisFiyat</td>
+                        <td>@item.SatisFiyat</td>
+                        <td>@item.Kategori.Ad</td>
+                        <td>@item.Resim</td>
+                        <td>
+                            <a href="/Urun/Guncelle/@item.Id" class="btn btn-warning">Düzenle</a>
+                        </td>
+                        <td>
+                            <a href="/Urun/Sil/@item.Id" class="btn btn-danger">Sil</a>
+                        </td>
+                        <td>
+                            <a href="/Urun/UrunDetay/@item.Id" class="btn btn-info">Detay</a>
+                        </td>
+                        <td>
+                            <a href="/Urun/SatisYap/@item.Id" class="btn" style="background-color:#f28d00;color:white">Satış Yap</a>
+                        </td>
+                    </tr>
+
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

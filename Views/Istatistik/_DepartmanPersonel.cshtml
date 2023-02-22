@@ -1,0 +1,26 @@
+﻿@model List<OnlineTicariOtomasyon.Models.ModelViews.SinifGrup>
+@{ 
+    int i = 0;
+}
+
+<table class="table table-sm">
+    <thead>
+        <tr>
+            <th style="width: 10px">#</th>
+            <th>Departman</th>
+            <th style="width: 40px">Sayı</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            i++;
+            <tr>
+                <td>@i.</td>
+                <td>@item.Key</td>
+                <td><span class="badge bg-danger">@item.Sayi</span></td>
+            </tr>
+        }
+
+    </tbody>
+</table>

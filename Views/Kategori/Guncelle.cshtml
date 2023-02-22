@@ -1,0 +1,21 @@
+﻿@model OnlineTicariOtomasyon.Models.Entity.Kategori
+@{
+    ViewBag.Title = "Guncelle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h3 class="mt-4" style="margin-left:670px;color:purple;font-size:33px">Kategori Guncelle</h3>
+
+@using (Html.BeginForm("Guncelle", "Kategori", FormMethod.Post))
+{
+    <div style="margin-top:25px"></div>
+    <div style="margin-top:15px">
+        @Html.HiddenFor(x=>x.Id)
+        <label>Kategori Adı: </label>
+        @Html.TextBoxFor(x => x.Ad, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info">Güncelle</button>
+    </div>
+}
+

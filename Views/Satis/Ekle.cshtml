@@ -1,0 +1,39 @@
+﻿@model OnlineTicariOtomasyon.Models.Entity.SatisHareket
+@{
+    ViewBag.Title = "Ekle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h3 class="mt-4" style="margin-left:670px;color:purple;font-size:33px">Satış Yapma Ekranı</h3>
+
+<form method="post" action="Ekle">
+    <div style="margin-top:25px"></div>
+    <div style="margin-top:15px">
+        <label>Ürün Adı: </label>
+        @Html.DropDownListFor(x => x.UrunId, (List<SelectListItem>)ViewBag.Urunler, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Müşteri: </label>
+        @Html.DropDownListFor(x => x.MusteriId, (List<SelectListItem>)ViewBag.Musteriler, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Personel: </label>
+        @Html.DropDownListFor(x => x.PersonelId, (List<SelectListItem>)ViewBag.Personeller, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Adet: </label>
+        @Html.TextBoxFor(x => x.Adet, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Fiyat: </label>
+        @Html.TextBoxFor(x => x.Fiyat, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Toplam Fiyat: </label>
+        @Html.TextBoxFor(x => x.ToplamTutar, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info">Satış Yap</button>
+    </div>
+</form>
+

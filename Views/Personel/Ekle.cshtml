@@ -1,0 +1,35 @@
+﻿@model OnlineTicariOtomasyon.Models.Entity.Personel
+@{
+    ViewBag.Title = "Ekle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h3 class="mt-4" style="margin-left:670px;color:purple;font-size:33px">Ürün Ekle</h3>
+
+
+    <form method="post" action="Ekle" enctype="multipart/form-data">
+        <div style="margin-top:25px"></div>
+        <div style="margin-top:15px">
+            <label>Personel Adı: </label>
+            <input type="text" name="Ad" required class="form-control" />
+        </div>
+        <div style="margin-top:15px">
+            <label>Personel Soyadı: </label>
+            <input type="text" name="Soyad" required class="form-control" />
+        </div>
+        <div style="margin-top:15px">
+            <label>Departman: </label>
+            @Html.DropDownListFor(x => x.DepartmanId, (List<SelectListItem>)ViewBag.Departmanlar, new { @class = "form-control" })
+        </div>
+        <div style="margin-top:15px">
+            <label>Resim: </label>
+            @*@Html.TextBoxFor(x => x.Resim, new { @class = "form-control" })*@
+            <input type="file" name="Resim" />
+        </div>
+        <div style="margin-top:15px">
+            <button class="btn btn-info">Personeli Ekle</button>
+        </div>
+    </form>
+
+
+

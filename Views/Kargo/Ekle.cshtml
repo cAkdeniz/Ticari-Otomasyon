@@ -1,0 +1,31 @@
+﻿@model OnlineTicariOtomasyon.Models.Entity.KargoDetay
+@{
+    ViewBag.Title = "Ekle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h3 class="mt-4" style="margin-left:670px;color:purple;font-size:33px">Yeni Kargo Ekle</h3>
+
+<form method="post" action="Ekle">
+    <div style="margin-top:25px"></div>
+    <div style="margin-top:15px">
+        @Html.LabelFor(x => x.TakipKodu)
+        <input type="text" readonly name="TakipKodu" value="@ViewBag.TakipKodu" class="form-control"/>
+    </div>
+    <div style="margin-top:15px">
+        @Html.LabelFor(x => x.Personel)
+        @Html.TextBoxFor(x => x.Personel, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        @Html.LabelFor(x => x.Alici)
+        @Html.TextBoxFor(x => x.Alici, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        @Html.LabelFor(x => x.Aciklama)
+        @Html.TextAreaFor(x => x.Aciklama, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info">Kaydet</button>
+    </div>
+</form>
+

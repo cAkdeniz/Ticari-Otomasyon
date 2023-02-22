@@ -1,0 +1,39 @@
+﻿@model List<OnlineTicariOtomasyon.Models.Entity.Personel>
+@{
+    ViewBag.Title = "Detay";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+    int i = 0;
+}
+
+<div class="col-12 mt-3">
+    <div class="row">
+        <h3 style="margin-left:50px;color:red;font-size:26px"><b>@ViewBag.DepartmanAdi</b> departmanı</h3>
+    </div>
+</div>
+
+<table class="table table-bordered mt-2">
+    <tr>
+            <th>NO</th>
+            <th>PERSONEL AD</th>
+        <th>PERSONEL SOYAD</th>
+            <th>PERSONEL RESİM</th>
+            <th>PERSONEL SATIŞLAR</th>
+    </tr>    
+    <tbody>
+        @foreach (var item in Model)
+        {
+            i++;
+        <tr>
+            <td>@i</td>
+            <td>@item.Ad</td>
+            <td>@item.Soyad</td>
+            <td>
+            <img src="@item.Resim" height="70" width="150"/>
+            </td>
+            <td>
+                <a href="/Departman/DepartmanPersonelSatis/@item.Id" class="btn btn-info">Satışlar</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

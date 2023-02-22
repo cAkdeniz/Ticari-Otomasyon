@@ -1,0 +1,60 @@
+﻿@model OnlineTicariOtomasyon.Models.ModelViews.DinamikFatura
+@{
+    ViewBag.Title = "Dinamik";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="col-12 mt-3">
+    <div class="row">
+        <a href="/Kargo/Ekle" style="margin-bottom:7px;margin-left:20px" class="btn btn-primary">Yeni Fatura Girişi</a>
+        <h3 style="margin-left:480px;color:green;font-size:33px">Fatura Listesi</h3>
+    </div>
+</div>
+
+@foreach (var item in Model.Faturalar)
+{
+    <br />
+    <table class="table table-striped">
+        <tbody>
+            <tr>
+                <td>Seri-Sıra No : @item.SeriNo-@item.SiraNo </td>
+                <td>Müşteri : @item.TeslimAlan </td>
+                <td>Vergi Dairesi : @item.VergiDairesi </td>
+                <td>Tarih : @item.Tarih.ToString("D") </td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <table class="table table-bordered">
+                        <tbody>
+                            <tr>
+                                <th>Açıklama</th>
+                                <th>Miktar</th>
+                                <th>Fiyat</th>
+                                <th>Tutar</th>
+                            </tr>
+
+                            @{
+
+                                var totalBill = 0;
+
+                            }
+
+                            @foreach (var kalem in item.FaturaKalems)
+                            {
+                                <tr>
+                                    <td>@kalem.Aciklama</td>
+                                    <td>@kalem.Miktar</td>
+                                    <td>@kalem.BirimFiyat</td>
+                                    <td>@kalem.Tutar</td>
+                                </tr>
+                                totalBill = totalBill + @Convert.ToInt32(kalem.Tutar);
+                            }
+                        </tbody>
+                    </table>
+                    <span class="pull-right" style="margin-right:100px;"><strong>Toplam Tutar :  </strong> @totalBill</span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+}
+

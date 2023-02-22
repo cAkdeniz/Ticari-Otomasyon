@@ -1,0 +1,44 @@
+﻿@model OnlineTicariOtomasyon.Models.Entity.Urun
+@{
+    ViewBag.Title = "Guncelle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h3 class="mt-4" style="margin-left:670px;color:purple;font-size:33px">Ürün Güncelle</h3>
+
+<form method="post" action="Guncelle">
+    <div style="margin-top:25px"></div>
+    <input type="hidden" name="Id" value="@Model.Id"/>
+    <div style="margin-top:15px">
+        <label>Ürün Adı: </label>
+        @Html.TextBoxFor(x => x.Ad, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Marka: </label>
+        <input type="text" name="Marka" value="@Model.Marka" class="form-control" />
+    </div>
+    <div style="margin-top:15px">
+        <label>Stok: </label>
+        <input type="number" name="Stok" value="@Model.Stok" min="0" class="form-control" />
+    </div>
+    <div style="margin-top:15px">
+        <label>Alış Fiyatı: </label>
+        @Html.TextBoxFor(x => x.AlisFiyat, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Satış Fiyatı: </label>
+        @Html.TextBoxFor(x => x.SatisFiyat, new { @class = "form-control", @type = "datetime" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Kategori: </label>
+        @Html.DropDownListFor(x => x.KategoriId, (List<SelectListItem>)ViewBag.Kategoriler, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <label>Resim: </label>
+        @Html.TextBoxFor(x => x.Resim, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info">Ürünü Güncelle</button>
+    </div>
+</form>
+

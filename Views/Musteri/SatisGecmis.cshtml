@@ -1,0 +1,44 @@
+﻿@model List<OnlineTicariOtomasyon.Models.Entity.SatisHareket>
+@{
+    ViewBag.Title = "SatisGecmis";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+    int i = 0;
+}
+
+<div class="col-12 mt-3">
+    <div class="row">
+        <h3 style="margin-left:580px;color:green;font-size:33px">@ViewBag.MusteriAd @ViewBag.MusteriSoyad Müşteriye yapılan satışlar</h3>
+    </div>
+</div>
+<br />
+<table class="table table-condensed table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Ürün</th>
+        <th>Personel</th>
+        <th>Fiyat</th>
+        <th>Adet</th>
+        <th>Toplam Tutar</th>
+        <th>Tarih</th>
+    </tr>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            i++;
+            <tr>
+                <td>@i</td>
+                <td>@item.Urun.Ad</td>
+                <td>@item.Personel.Ad @item.Personel.Soyad</td>
+                <td>@item.Fiyat</td>
+                <td>@item.Adet</td>
+                <td>@item.ToplamTutar</td>
+                <td>@item.Tarih</td>
+                <td>
+                    <a href="/Departman/SatisYazdir/@item.Id" class="btn btn-info">Yazdır</a>
+                </td>
+            </tr>
+
+        }
+    </tbody>
+</table>
+

@@ -1,0 +1,58 @@
+﻿@model List<OnlineTicariOtomasyon.Models.Entity.SatisHareket>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+    int i = 0;
+}
+
+<div class="card mt-3">
+    <div class="col-12 mt-3">
+        <div class="row">
+            <h3 style="margin-left:580px;color:green;font-size:33px">Satış Listesi</h3>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>NO</th>
+                        <th>ÜRÜN</th>
+                        <th>CARİ</th>
+                        <th>PERSONEL</th>
+                        <th>ADET</th>
+                        <th>FİYAT</th>
+                        <th>TOPLAM FİYAT</th>
+                        <th>TARİH</th>
+                        <th>DÜZENLE</th>
+                        <th>DETAY</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        i++;
+                        <tr>
+                            <td>@i</td>
+                            <td>@item.Urun.Ad</td>
+                            <td>@item.Musteri.Ad @item.Musteri.Soyad</td>
+                            <td>@item.Personel.Ad @item.Personel.Soyad</td>
+                            <td>@item.Adet</td>
+                            <td>@item.Fiyat</td>
+                            <td>@item.ToplamTutar</td>
+                            <td>@item.Tarih.ToString("D")</td>
+                            <td>
+                                <a href="/Satis/Guncelle/@item.Id" class="btn btn-warning">Düzenle</a>
+                            </td>
+                            <td>
+                                <a href="/Satis/Detay/@item.Id" class="btn btn-info">Detay</a>
+                            </td>
+                        </tr>
+
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

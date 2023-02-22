@@ -1,0 +1,62 @@
+﻿@model List<OnlineTicariOtomasyon.Models.Entity.Fatura>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+    int i = 0;
+}
+
+<div class="card mt-3">
+    <div class="col-12 mt-3">
+        <div class="row">
+            <a href="/Fatura/Ekle" style="margin-bottom:7px;margin-left:20px" class="btn btn-primary">Fatura Ekle</a>
+            <h3 style="margin-left:480px;color:green;font-size:33px">Fatura Listesi</h3>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>*</th>
+                        <th>Seri NO</th>
+                        <th>Sıra No</th>
+                        <th>Vergi Dairesi</th>
+                        <th>Tarih</th>
+                        <th>Saat</th>
+                        <th>Teslim Eden</th>
+                        <th>Teslim Alan</th>
+                        <th>Toplam</th>
+                        <th>Güncelle</th>
+                        <th>Detay</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        i++;
+                    <tr>
+                        <td>@i</td>
+                        <td>@item.SeriNo</td>
+                        <td>@item.SiraNo</td>
+                        <td>@item.VergiDairesi</td>
+                        <td>@item.Tarih.ToString("D")</td>
+                        <td>@item.Saat</td>
+                        <td>@item.TeslimEden</td>
+                        <td>@item.TeslimAlan</td>
+                        <td>@item.ToplamTutar ₺</td>
+                        <td>
+                            <a href="/Fatura/Guncelle/@item.Id" class="btn btn-warning">Düzenle</a>
+                        </td>
+                        <td>
+                            <a href="/Fatura/Detay/@item.Id" class="btn btn-info">Detay</a>
+                        </td>
+                    </tr>
+
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+

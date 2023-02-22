@@ -1,0 +1,35 @@
+﻿@model OnlineTicariOtomasyon.Models.Entity.FaturaKalem
+@{
+    ViewBag.Title = "KalemEkle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h3 class="mt-4" style="margin-left:670px;color:purple;font-size:33px">Fatura Kalem Girişi</h3>
+
+<form method="post" action="KalemEkle">
+    <div style="margin-top:25px"></div>
+    <div style="margin-top:15px">
+        @Html.LabelFor(x => x.Aciklama)
+        @Html.TextBoxFor(x => x.Aciklama, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        @Html.LabelFor(x => x.Miktar)
+        @Html.TextBoxFor(x => x.Miktar, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        @Html.LabelFor(x => x.BirimFiyat)
+        @Html.TextBoxFor(x => x.BirimFiyat, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        @Html.LabelFor(x => x.Tutar)
+        @Html.TextBoxFor(x => x.Tutar, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        @Html.LabelFor(x => x.FaturaId)
+        @Html.TextBoxFor(x => x.FaturaId, new { @class = "form-control", @readonly = "readonly" })
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info">Kaydet</button>
+    </div>
+</form>
+

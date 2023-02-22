@@ -1,0 +1,46 @@
+﻿@model OnlineTicariOtomasyon.Models.Entity.Fatura
+@{
+    ViewBag.Title = "Guncelle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h3 class="mt-4" style="margin-left:670px;color:purple;font-size:33px">Fatura Düzenle</h3>
+
+<form method="post" action="Guncelle">
+    <div style="margin-top:25px"></div>
+    @Html.HiddenFor(x=>x.Id)
+    <div style="margin-top:15px">
+        @Html.LabelFor(x => x.SeriNo)
+        @Html.TextBoxFor(x => x.SeriNo, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        @Html.LabelFor(x => x.SiraNo)
+        @Html.TextBoxFor(x => x.SiraNo, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        @Html.LabelFor(x => x.VergiDairesi)
+        @Html.TextBoxFor(x => x.VergiDairesi, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        @Html.LabelFor(x => x.Tarih)
+        <input type="text" name="Tarih" value="@Model.Tarih.ToShortDateString()" class="form-control"/>
+    </div>
+    <div style="margin-top:15px">
+        @Html.LabelFor(x => x.Saat)
+        @Html.TextBoxFor(x => x.Saat, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        @Html.LabelFor(x => x.TeslimEden)
+        @Html.TextBoxFor(x => x.TeslimEden, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        @Html.LabelFor(x => x.TeslimAlan)
+        @Html.TextBoxFor(x => x.TeslimAlan, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info">Kaydet</button>
+    </div>
+</form>
+
+
+

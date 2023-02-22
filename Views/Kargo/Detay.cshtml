@@ -1,0 +1,21 @@
+﻿@model List<OnlineTicariOtomasyon.Models.Entity.KargoTakip>
+@{
+    ViewBag.Title = "Detay";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+
+<table class="table table-striped">
+    <tr>
+        <th>Açıklama</th>
+        <th>Tarih</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Aciklama</td>
+            <td>@item.TarihZaman.ToString("D")</td>
+        </tr>
+    }
+</table>
